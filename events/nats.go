@@ -95,7 +95,7 @@ func (n *NatsEventStore) SubscribeCreateFeed(ctx context.Context) (<-chan Create
 		for {
 			select {
 			case msg := <-ch:
-				n.decodeMessage(msg.Data, m)
+				n.decodeMessage(msg.Data, &m)
 				n.feedCreatedChan <- m
 			}
 		}
